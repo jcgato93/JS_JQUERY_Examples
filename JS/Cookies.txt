@@ -1,0 +1,171 @@
+Cuáles son Cookies ?
+Cookies son datos, almacenados en archivos de texto pequeños, en el equipo.
+
+Cuando un servidor web ha enviado una página web a un navegador, la conexión se cierra, y el servidor se olvida de todo lo relacionado con el usuario.
+
+Cookies se inventaron para resolver el problema de "cómo recordar información sobre el usuario":
+
+Cuando un usuario visita una página web, su nombre se puede almacenar en una cookie .
+La próxima vez que el usuario visita la página, la cookie "recuerda" su nombre.
+Las cookies se guardan en pares de nombre y valor como:
+
+username = John Doe
+Cuando una petición del navegador una página web desde un servidor, cookies que pertenecen a la página se agrega a la solicitud. De esta manera el servidor recibe los datos necesarios para "recordar" información acerca de los usuarios.
+
+Crear a Cookie con Javascript
+JavaScript puede crear, leer y borrar cookies con el document.cookie propiedad.
+
+Con JavaScript, a cookie puede ser creado de esta manera:
+
+document.cookie = "username=John Doe";
+También puede agregar una fecha de caducidad (en hora UTC). Por defecto, the cookie se elimina cuando se cierra el navegador:
+
+document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC";
+Con un parámetro de ruta, puede decirle al navegador qué camino the cookie pertenece. Por defecto, the cookie pertenece a la página actual.
+
+document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
+Leer a Cookie con Javascript
+Con JavaScript, cookies se pueden leer como esto:
+
+var x = document.cookie;
+document.cookie devolverá todas cookies en una secuencia muy similar: cookie1=value; cookie2=value; cookie3=value; cookie1=value; cookie2=value; cookie3=value;
+
+Cambiar a Cookie con Javascript
+Con JavaScript, puede cambiar a cookie la misma manera que lo crea:
+
+document.cookie = "username=John Smith; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
+La edad cookie se sobrescribe.
+
+Eliminar a Cookie con Javascript
+Eliminación de a cookie es muy simple. Sólo hay que establecer el parámetro expira a una fecha pasada:
+
+document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+Tenga en cuenta que usted no tiene que especificar a cookie valor cuando se elimina a cookie .
+
+La Cookie de cuerdas
+El document.cookie propiedad parece una cadena de texto normal. Pero no lo es.
+
+Incluso si usted escribe un conjunto cookie cadena a document.cookie , cuando lo lea de nuevo, sólo se puede ver el par nombre-valor de la misma.
+
+Si se establece una nueva cookie , de mayor edad cookies no se sobrescriben. La nueva cookie se añade a document.cookie , por lo que si usted lee document.cookie nuevo obtendrá algo como:
+
+cookie1 = value; cookie2 = value;
+
+Mostrar todas las Cookies Crear Cookie 1 Crear Cookie 2 Borrar Cookie 1 Borrar Cookie 2
+
+Si desea encontrar el valor de un determinado cookie , debe escribir una función de JavaScript que busca la cookie valor en la cookie cadena.
+
+JavaScript Cookie Ejemplo
+En el ejemplo a seguir, vamos a crear a cookie que almacena el nombre de un visitante.
+
+La primera vez que un visitante llega a la página web, se le pedirá que complete su nombre. El nombre se almacena en a cookie .
+
+La próxima vez que el visitante llega a la misma página, recibirá un mensaje de bienvenida.
+
+Para el ejemplo vamos a crear 3 funciones de JavaScript:
+
+Una función para configurar una cookie valor
+Una función para obtener una cookie valor
+Una función para comprobar una cookie valor
+Una función para establecer a Cookie
+En primer lugar, creamos una función que almacena el nombre del visitante en a cookie variables:
+
+Ejemplo
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+Ejemplo explicó:
+
+Los parámetros de la función de arriba son el nombre de la cookie (cname) , el valor de the cookie (cvalue) , y el número de días hasta que la cookie debe expirar (exdays).
+
+La función establece a cookie sumando el cookiename , the cookie valor, y la vence cadena.
+
+Una Función para obtener a Cookie
+Luego, creamos una función que devuelve el valor de un determinado cookie :
+
+Ejemplo
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length,c.length);
+        }
+    }
+    return "";
+}
+Funciones que se explican:
+
+Tome the cookiename como parámetro (CNAME).
+
+Crear una variable (nombre) con el texto que desea buscar (cname + "=").
+
+Dividir document.cookie en punto y coma en una matriz llamada ca (ca = document.cookie.split(';')) .
+
+Lazo a través del ca array (i=0;i<ca.length;i++) , y dio lectura a cada valor de c=ca[i]) .
+
+Si the cookie es encontrado (c.indexOf(name) == 0) , devolver el valor de the cookie (c.substring(name.length,c.length) .
+
+Si the cookie no se encuentra, volver "".
+
+Una función que controla a Cookie
+Por último, creamos la función que checks si a cookie se establece.
+
+Si the cookie se establece que aparezca un saludo.
+
+Si the cookie no está establecido, se mostrará un cuadro de diálogo, preguntando por el nombre del usuario, y almacena el nombre de usuario cookie por 365 días, llamando al setCookie función:
+
+Ejemplo
+function checkCookie() {
+    var username=getCookie("username");
+    if (username!="") {
+        alert("Welcome again " + username);
+    } else {
+        username = prompt("Please enter your name:", "");
+        if (username != "" && username != null) {
+            setCookie("username", username, 365);
+        }
+    }
+}
+Todos juntos ahora
+Ejemplo
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function checkCookie() {
+    var user = getCookie("username");
+    if (user != "") {
+        alert("Welcome again " + user);
+    } else {
+        user = prompt("Please enter your name:", "");
+        if (user != "" && user != null) {
+            setCookie("username", user, 365);
+        }
+    }
+}

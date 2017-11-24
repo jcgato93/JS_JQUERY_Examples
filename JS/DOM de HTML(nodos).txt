@@ -1,0 +1,17 @@
+Creación de nuevos elementos HTML (nodos)
+Para añadir un nuevo elemento a la DOM de HTML, se debe crear el elemento (nodo de elemento) en primer lugar y, a continuación, añadir a un elemento existente.
+
+Ejemplo
+<div id="div1">
+<p id="p1">This is a paragraph.</p>
+<p id="p2">This is another paragraph.</p>
+</div>
+
+<script>
+var para = document.createElement("p");
+var node = document.createTextNode("This is new.");
+para.appendChild(node);
+
+var element = document.getElementById("div1");
+element.appendChild(para);
+</script>

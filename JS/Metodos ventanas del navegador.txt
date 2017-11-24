@@ -1,0 +1,66 @@
+
+
+
+window.open() - abrir una nueva ventana
+window.close() - cerrar la ventana actual
+window.moveTo() -Mover la ventana actual
+window.resizeTo() -resize la ventana actual
+
+
+
+//======================================================
+El objeto window.screen contiene información acerca de la pantalla del usuario.
+
+Window Screen
+El window.screen objeto puede escribirse sin el prefijo ventana.
+
+propiedades:
+
+screen.width
+screen.height
+screen.availWidth
+screen.availHeight
+screen.colorDepth
+screen.pixelDepth
+
+
+
+//======================================================
+Window Location
+El window.location objeto puede escribirse sin el prefijo ventana.
+
+Algunos ejemplos:
+
+window.location.href devuelve el href (URL) de la página actual
+window.location.hostname devuelve el nombre de dominio del proveedor de alojamiento web
+window.location.pathname devuelve la ruta y el nombre de la página actual
+window.location.protocol devuelve el protocolo web utilizado ( http:// o https:// )
+window.location.assign carga un nuevo documento
+
+
+
+//===================================================
+Window History
+El window.history objeto puede escribirse sin el prefijo ventana.
+
+Para proteger la privacidad de los usuarios, existen ciertas limitaciones sobre el JavaScript puede acceder a este objeto.
+
+Algunos métodos:
+
+history.back() - equivale a hacer clic de nuevo en el navegador
+history.forward() - equivale a hacer clic hacia adelante en el navegador
+
+<html>
+<head>
+<script>
+function goBack() {
+    window.history.back()
+}
+</script>
+</head>
+<body>
+
+<input type="button" value="Back" onclick="goBack()">
+
+</body>
+</html>

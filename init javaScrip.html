@@ -7,12 +7,28 @@
 
 </head>
 
-<body style="text-align:">
+<body style="text-align:center">
+
 
 <h1>HOla a todos</h1>
 
 <p>Bienvenidos al curso de JavaScript de <span>Píldoras Informáticas</span></p>
 <img src="imgs/arbol.jpg" width="35%">
+
+<p id=demo>aqui la fecha</p>
+
+<script>
+  var d = new Date();
+  document.getElementById("demo").innerHTML = d.getDate+" "+d.getMonth+" "+d.getFullYear;
+  
+  </script>
+
+
+
+
+
+
+
 
 </body>
 

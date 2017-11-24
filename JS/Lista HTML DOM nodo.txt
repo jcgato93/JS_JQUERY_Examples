@@ -1,0 +1,15 @@
+El getElementsByTagName() método devuelve unalista de nodos.Una lista de nodos es una colección de tipo vector de nodos.
+
+El código siguiente selecciona todos los <p> nodos de un documento:
+
+
+var	myNodelist = document.getElementsByTagName("p");
+var i;
+for (i = 0; i <	myNodelist.length; i++) {
+   	myNodelist[i].style.backgroundColor = "red";
+}
+
+
+
+esto le colocara a todas las etiquetas "p" el color de fondo 
+rojo

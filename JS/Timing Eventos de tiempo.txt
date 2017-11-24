@@ -1,0 +1,112 @@
+//=======================================
+Timing Eventos
+El objeto de la ventana permite la ejecución de código a intervalos de tiempo especificados.
+
+Estos intervalos de tiempo son llamados eventos de tiempo.
+
+Los dos métodos principales para usar con JavaScript son:
+
+setTimeout( function, milliseconds ) 
+Ejecuta una función, después de esperar un número especificado de milisegundos.
+setInterval( function, milliseconds ) 
+Igual que setTimeout() , pero repite la ejecución de la función continuamente.
+
+//==============================================
+El setTimeout() Método
+window.setTimeout(function, milliseconds);
+El window.setTimeout() método se puede escribir sin el prefijo ventana.
+
+El primer parámetro es una función a ejecutar.
+
+El segundo parámetro indica el número de milisegundos antes de la ejecución.
+
+<button onclick="setTimeout(myFunction, 3000)">Try it</button>
+
+<script>
+function myFunction() {
+    alert('Hello');
+}
+</script>
+
+
+//==============================================
+Cómo detener la ejecución?
+El clearTimeout() método se detiene la ejecución de la función especificada en setTimeout() .
+
+window.clearTimeout( timeoutVariable )
+El window.clearTimeout() método se puede escribir sin el prefijo ventana.
+
+El clearTimeout() método utiliza la variable de regresar de setTimeout() :
+
+myVar = setTimeout(function, milliseconds);
+clearTimeout(myVar);
+Si la función ya no se ha ejecutado, se puede detener la ejecución llamando al clearTimeout() método:
+
+Ejemplo
+Mismo ejemplo anterior, pero con un botón añadido "Stop":
+
+<button onclick="myVar = setTimeout(myFunction, 3000)">Try it</button>
+
+<button onclick="clearTimeout(myVar)">Stop it</button>
+
+
+//===============================================
+
+
+
+
+
+
+
+El setInterval() Método
+El setInterval() método se repite una función dada en cada intervalo de tiempo dado.
+
+window.setInterval(function, milliseconds);
+El window.setInterval() método se puede escribir sin el prefijo ventana.
+
+El primer parámetro es la función a ejecutar.
+
+El segundo parámetro indica la longitud del intervalo de tiempo entre cada ejecución.
+
+Este ejemplo ejecuta una función llamada "myTimer" una vez por segundo (como un reloj digital).
+
+Ejemplo
+Mostrar la hora actual:
+
+var myVar = setInterval(myTimer, 1000);
+
+function myTimer() {
+    var d = new Date();
+    document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+}
+
+
+//=====================================================
+
+Cómo detener la ejecución?
+El clearInterval() método detiene la ejecución de la función especificada en el setInterval() método.
+
+window.clearInterval( timerVariable )
+El window.clearInterval( ) método se puede escribir sin el prefijo ventana.
+
+El clearInterval() método utiliza la variable de regresar de setInterval() :
+
+myVar = setInterval(function, milliseconds);
+clearInterval(myVar);
+Ejemplo
+Mismo ejemplo anterior, pero hemos añadido un botón "Detener el tiempo":
+
+<p id="demo"></p>
+
+<button onclick="clearInterval(myVar)">Stop time</button>
+
+<script>
+var myVar = setInterval(myTimer, 1000);
+function myTimer() {
+    var d = new Date();
+    document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+}
+</script>
+
+
+

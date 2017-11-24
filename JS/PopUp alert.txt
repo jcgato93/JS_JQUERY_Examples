@@ -1,0 +1,42 @@
+//================================================
+confirmar Box
+Un cuadro de confirmación se utiliza a menudo si desea que el usuario pueda verificar o aceptar algo.
+
+Cuando un cuadro de confirmación aparece, el usuario tendrá que hacer clic en cualquiera de los dos "OK" o "Cancel" para continuar.
+
+Si el usuario hace clic en "OK" , el cuadro devuelve verdadero. Si el usuario hace clic en "Cancel" , el cuadro vuelve falsa.
+
+Sintaxis
+window.confirm("sometext");
+El window.confirm() método se puede escribir sin el prefijo ventana.
+
+Ejemplo
+var r = confirm("Press a button");
+if (r == true) {
+    x = "You pressed OK!";
+} else {
+    x = "You pressed Cancel!";
+}
+
+
+
+//==================================================
+aja pronta
+Un cuadro de mensaje se utiliza a menudo si desea que el usuario introduzca un valor antes de entrar en una página.
+
+Cuando un cuadro de mensaje aparece, el usuario tendrá que hacer clic en cualquiera de los dos "OK" o "Cancel" para proceder después de introducir un valor de entrada.
+
+Si el usuario hace clic en "OK" del cuadro devuelve el valor de entrada. Si el usuario hace clic en "Cancel" el cuadro devuelve un valor nulo.
+
+Sintaxis
+window.prompt("sometext","defaultText");
+El window.prompt() método se puede escribir sin el prefijo ventana.
+
+Ejemplo
+var person = prompt("Please enter your name", "Harry Potter");
+if (person != null) {
+    document.getElementById("demo").innerHTML =
+    "Hello " + person + "! How are you today?";
+}
+
+
