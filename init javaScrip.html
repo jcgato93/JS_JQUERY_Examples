@@ -4,7 +4,7 @@
    <meta charset="utf-8">
   <link href="css/micss.css" rel="stylesheet"/>
   <script src="Jquery/example.js">  </script>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body style="text-align:center">
@@ -14,18 +14,31 @@
 
 <p>Bienvenidos al curso de JavaScript de <span>Píldoras Informáticas</span></p>
 <img src="imgs/arbol.jpg" width="35%">
-
+<label><input type="checkbox" id="check" value="first_checkbox"> Este es mi primer checkbox</label><br>
 <p id=demo>aqui la fecha</p>
+
 
 <script>
   var d = new Date();
-  document.getElementById("demo").innerHTML = d.getDate+" "+d.getMonth+" "+d.getFullYear;
-  
+ // document.getElementById("demo").innerHTML = d.getDate+" "+d.getMonth+" "+d.getFullYear;
+  document.getElementById("check").checked=true;
   </script>
 
 
 
+<table id="table">
+   <thead>
+     <tr>
+       <td>header</td>
+     </tr>
+   </thead>
+   <tbody id="tbody">
+    <tr>
+      <td>ejenmplo</td>
+    </tr>
+   </tbody>
 
+</table>
 
 
 

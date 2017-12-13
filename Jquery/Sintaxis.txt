@@ -1,0 +1,38 @@
+﻿La sintaxis de jQuery está hecha a medida para laselección de los elementos HTML y realizar alguna acciónsobre el element(s) .
+
+Sintaxis básica es: $(selector).action()
+
+A $ señal para definir / jQuery acceso
+Un(selector)para "consulta (o encontrar)" elementos HTML
+A jQuery action () que se realiza en el element(s)
+Ejemplos:
+
+$(this).hide() - oculta el elemento actual.
+
+$("p").hide() - todos <p> elementos.
+
+$(".test").hide() - oculta todos los elementos con class="test" . clase css
+
+$("#test").hide() - esconde el elemento con id="test" .
+
+
+
+
+
+$("*")	                    Selects all elements	
+$(this)	                    Selects the current HTML element
+$("p.intro")		        Selects all <p> elements with class="intro"	
+$("p:first")		        Selects the first <p> element	
+$("ul li:first")	        Selects the first <li> element of the first <ul>	
+$("ul li:first-child")	    Selects the first <li> element of every <ul>	
+$("[href]")	                Selects     all elements with an href attribute	
+$("a[target='_blank']")	    Selects all <a> elements with a target attribute value equal to "_blank"	
+$("a[target!='_blank']")    Selects all <a> elements with a target attribute value NOT equal to "_blank"	
+$(":button")		        Selects all <button> elements and <input> elements of type="button"	
+$("tr:even")		        Selects all even <tr> elements	
+$("tr:odd")		            Selects all odd <tr> elements
+
+
+
+
+

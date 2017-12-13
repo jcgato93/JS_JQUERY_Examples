@@ -12,3 +12,11 @@ document.write("<p>");
 document.write(nombre+" "+apellido);
 
 document.write("</p>");
+
+/**
+ * lanza un alert con los botones de ok y cancel y retorna un boolean
+ */
+function alertConfirmation()
+{
+    return confirm("quieres realizar esta accion");    
+}
