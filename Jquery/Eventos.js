@@ -134,12 +134,12 @@ $("p").on({
     mouseenter: function(){
         $(this).css("background-color", "lightgray");
     }, 
-    mouseleave: function(){
+    mouseleave: function () {
         $(this).css("background-color", "lightblue");
-    }, 
-    click: function(){
+    },
+    click: function () {
         $(this).css("background-color", "yellow");
-    } 
+    }
 });
 
 
