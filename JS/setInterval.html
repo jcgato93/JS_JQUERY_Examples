@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+        <h1 id="timer">ha Pasado 0 segundos</h1>
+
+    <script>
+
+//Con setInterval puedes ejecutar código cada cierto tiempo, 
+//un buen ejemplo de setInterval es el contador que 
+//aparece entre video y video que te dice: El siguiente video se reproducirá en 5 segundos… 4 segundos…        
+       	//setInterval(funcion , tiempo)
+                let counter = 0
+
+                const timer = document.getElementById('timer')
+                let n = ''
+                let s = ''
+                let currentString = 0
+                setInterval(() => {
+                    counter++
+
+                    timer.textContent = `ha ${n} Pasado ${counter} segundo${s}`
+                    n = "n"
+                    s = "s"
+                }, 1000)
+    </script>
+</body>
+</html>
