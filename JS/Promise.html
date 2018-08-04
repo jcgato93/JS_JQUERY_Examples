@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Un día de mi vida</title>
+	</head>
+	<body>
+		<h1 id="agenda">Está sonando el despertador...</h1>
+		<button id="si">Sí</button>
+		<button id="no">No</button>
+		<script>
+			const INICIO = 1000;
+			const DESPERTAR = 3000;
+			const DUCHA = 2000;
+			const VESTIRSE = 2000;
+			const DESAYUNAR = 2000;
+			const PLATZI = 3000;		
+			const $agenda = document.getElementById('agenda');
+			const $buttonSI = document.getElementById('si');
+			const $buttonNO = document.getElementById('no');
+			desaparecerBotones();
+
+			function inicio(message) {
+				return new Promise((resolve, reject) => {
+					setTimeout(() => {
+						$agenda.textContent = 'Me quiero levantar?';
+						aparecerBotones();
+
+						$buttonSI.addEventListener('click', () => {
+							desaparecerBotones();
+							resolve("Estoy despertando...");
+						});
+
+						$buttonNO.addEventListener('click', () => {
+							desaparecerBotones();
+							reject('Tengo flojera :(');
+						});
+					}, INICIO);
+				});
+			}
+
+			function despertar(message) {
+				$agenda.textContent = message;
+				return new Promise((resolve, reject) => {
+					setTimeout(() => {
+						resolve('Ahora me estoy duchando...');
+					}, DESPERTAR);
+				});
+			}
+
+			function ducha(message) {
+				$agenda.textContent = message;
+				return new Promise((resolve, reject) => {
+					$agenda.textContent = message;
+					setTimeout(() => {
+						resolve('Me estoy vistiendo...');
+					}, DUCHA);
+				});
+			}
+
+			function vestirme(message) {
+				return new Promise((resolve, reject) => {
+					setTimeout(() => {
+						aparecerBotones();
+						$agenda.textContent = '¿Hay comida en la nevera?';
+
+						$buttonSI.addEventListener('click', () => {
+							desaparecerBotones();
+							resolve('Estoy comiendo una rica pizza...');
+						});
+
+						$buttonNO.addEventListener('click', () => {
+							desaparecerBotones();
+							reject('No hay comida, iré a comprar :(');
+						});
+					}, VESTIRSE);
+				});
+			}
+
+			function desayunar(message) {
+				$agenda.textContent = message;
+				return new Promise((resolve, reject) => {
+					setTimeout(() => {
+						aparecerBotones();
+						$agenda.textContent = '¿Tengo conexcion a internet?';
+
+						$buttonSI.addEventListener('click', () => {
+							desaparecerBotones();
+							resolve('Ahora estoy estudiando en Platzi...');
+						});
+
+						$buttonNO.addEventListener('click', () => {
+							desaparecerBotones();
+							reject('Necesito internet para entrar a Platzi :(');
+						});
+					}, DESAYUNAR);
+				});
+			}
+
+			function estudiar(message) {			
+				$agenda.textContent = message;
+				return new Promise((resolve, reject) => {
+					setTimeout(() => {
+						aparecerBotones();
+						$agenda.textContent = '¿Me quiero ir a dormir?';
+
+						$buttonSI.addEventListener('click', () => {
+							desaparecerBotones();
+							resolve('Mi día ha terminado, iré a dormir');
+						});
+
+						$buttonNO.addEventListener('click', () => {
+							desaparecerBotones();
+							reject('Seguiré estudiando hasta quedarme dormido...');
+						});
+					}, PLATZI);
+				});
+			}
+
+			function aparecerBotones() {
+				$buttonSI.setAttribute("style","visibility:visible");
+				$buttonNO.setAttribute("style","visibility:visible");
+			}
+
+			function desaparecerBotones(){
+				$buttonSI.setAttribute("style","visibility:hidden");
+				$buttonNO.setAttribute("style","visibility:hidden");
+			}
+
+			function error(message) {
+				$agenda.style.color = 'red';
+				$agenda.textContent = message;
+			}
+
+			inicio()
+			.then(despertar)
+			.then(ducha)
+			.then(vestirme)
+			.then(desayunar)
+			.then(estudiar)
+			.then((message) => $agenda.textContent = message)
+			.catch(error)
+
+		</script> 
+	</body>
+</html>
