@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="cancel-button">cancel</button>
+    
+    <h1 id="timer">Han pasado 0 segundos</h1>
+<script>
+    const $cancelButton = document.getElementById('cancel-button');
+
+    const timeout = setTimeout(() => {
+        alert('pasaron 5 segundos')
+    }, 5000);
+
+    //========set interval
+
+    const $timer= document.getElementById('timer');
+    let counter= 0 ;
+    const contador= setInterval(()=>{
+        counter++;
+
+        timer.textContent = `han pasado ${counter} segundos`;
+    },1000);
+
+
+    // ==== cancel timeout y setInterval
+    $cancelButton.addEventListener('click',()=>{
+        clearTimeout(timeout); //limpia el Timeout
+        clearInterval(contador);
+    });
+
+
+
+</script>
+
+</body>
+</html>
