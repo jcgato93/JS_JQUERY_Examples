@@ -1,0 +1,56 @@
+<!-- Los Callbacks en JavaScript son como su propio nombre, en inglés,
+indica, llamadas de vuelta, quiere decir que cuando invoco una función 
+pasándole como parámetro otra función (el callback) esta función parámetro 
+se ejecuta cuando la función principal ha terminado de ejecutarse. O cuando a nosotros nos interese…
+
+Este concepto que parece muy complicado, es en realidad muy sencillo de entender si lo hacemos con casos prácticos, por ejemplo:
+
+
+function funcionPrincipal(callback){
+ alert('hago algo y llamo al callback avisando que terminé');
+ callback();
+}
+ 
+funcionPrincipal(function(){
+ alert('terminó de hacer algo');
+}); -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+ 
+ <h1 id="agenda">Estoy despertando</h1>
+ 
+    <script>
+        const DESPERTAR= 3000;
+        const DUCHA= 2000;
+        const VESTIRSE= 2000;
+        const DESAYUNO= 3000; 
+        const ESTUDIAR= 5000;
+
+        const $agenda= document.getElementById('agenda');
+
+        setTimeout(() => {
+            $agenda.textContent = 'Me estoy duchando....' ;   
+            setTimeout(() => {
+                $agenda.textContent = 'Me estoy Vistiendo....' ;   
+                setTimeout(() => {
+                    $agenda.textContent = 'Estoy desayunando....' ; 
+                    setTimeout(() => {
+                        $agenda.textContent = 'Estoy Estudiando....' ;   
+                    }, ESTUDIAR);  
+                }, VESTIRSE);
+            }, DUCHA);
+        }, DESPERTAR);
+    </script>
+
+</body>
+</html>
